@@ -1,0 +1,39 @@
+@{
+  Layout = "_Layout";
+}
+
+@using HairSalon.Models
+
+@{
+  Stylist stylist = ViewData["stylist"] as Stylist;
+  List<Client> clients = ViewData["clients"] as List<Client>;
+}
+
+<h1>Stylist Details</h1>
+<hr />
+<h3>Stylist: @stylist.FirstName @stylist.LastName</h3>
+<h3>Phone number: @stylist.Phone</h3>
+@if (stylist.Email != null)
+{
+  <h3>Email: @stylist.Email</h3>
+} 
+else
+{
+  <h3>Email: None</h3>
+}
+@if (stylist.Specialty != null)
+{
+  <h3>Specialty: @stylist.Specialty</h3>
+} 
+else
+{
+  <h3>Specialty: None</h3>
+}
+<ul>
+  @foreach (Client client in clients)
+  {
+    <li>@Html.ActionLink($"{client.FirstName}" + " " + $" {client.LastName}", "Details", "Clients", new { id = client.ClientId})</li>
+  }
+</ul>
+
+<p>@Html.ActionLink("Back to stylists", "Index")</p>
