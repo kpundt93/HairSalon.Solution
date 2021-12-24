@@ -1,0 +1,31 @@
+@{
+  Layout = "_Layout";
+}
+
+@model HairSalon.Models.Stylist
+
+<h3>Add a new stylist</h3>
+@using (Html.BeginForm())
+{
+  <div class="form-group col-6">
+  @Html.LabelFor(model => model.FirstName, "First Name")
+  @Html.TextBoxFor(model => model.FirstName, new { required="required", @class="form-control"})
+  </div>
+  <div class="form-group col-6">
+  @Html.LabelFor(model => model.LastName, "Last Name")
+  @Html.TextBoxFor(model => model.LastName, new { required="required", @class="form-control"})
+  </div>
+  <div class="form-group col-6">
+  @Html.LabelFor(model => model.Phone, "Phone Number")
+  @Html.TextBoxFor(model => model.Phone, new { type="tel", pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}", placeholder="ex: 503-555-5555", required="required", @class="form-control"})
+  </div>
+  <div class="form-group col-6">
+  @Html.LabelFor(model => model.Email)
+  @Html.TextBoxFor(model => model.Email, new { type="email", placeholder="email@something.com", @class="form-control" })
+  </div>
+  <div class="form-group col-6">
+  @Html.LabelFor(model => model.Specialty)
+  @Html.TextBoxFor(model => model.Specialty, new { @class="form-control" })
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+}
