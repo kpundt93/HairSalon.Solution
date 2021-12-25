@@ -7,6 +7,17 @@
 <h1>Eau Claire's Salon</h1>
 <hr />
 <h2>Client Details</h2>
+<ul class="nav justify-content-center">
+  <li class="nav-item">
+    <a>@Html.ActionLink("Edit this client", "Edit", new { id = Model.ClientId })</a>
+  </li>
+  <li class="nav-item">
+    <a>@Html.ActionLink("Back to client list", "Index")</a>
+  </li>
+  <li class="nav-item">
+    <a>@Html.ActionLink("Back to stylist list", "Index", "Stylists")</a>
+  </li>
+</ul>
 <h4>Name: @Html.DisplayFor(model => model.FirstName) @Html.DisplayFor(model => model.LastName)</h4>
 <h4>Phone number: @Html.DisplayFor(model => model.Phone)</h4>
 @if (Model.Email != null)
@@ -18,7 +29,3 @@ else
   <h4>Email: None</h4>
 }
 <h4>Stylist: @Html.DisplayFor(model => model.Stylist.FullName)</h4>
-
-<p>@Html.ActionLink("Edit this client", "Edit", new { id = Model.ClientId })</p>
-<p>@Html.ActionLink("Back to client list", "Index")</p>
-<p>@Html.ActionLink("Back to stylist list", "Index", "Stylists")</p>

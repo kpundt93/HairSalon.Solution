@@ -7,6 +7,20 @@
 <h1>Eau Claire's Salon</h1>
 <hr />
 <h2>Stylists</h2>
+<ul class="nav justify-content-center">
+  <li class="nav-item">
+    <a>@Html.ActionLink("Home", "Index", "Home")</a>
+  </li>
+  <li class="nav-item">
+    <a>@Html.ActionLink("Add new stylist", "Create")</a>
+  </li>
+  @if(@Model.Count != 0)
+  {
+    <li class="nav-item">
+      <a>@Html.ActionLink("View all clients", "Index", "Clients")</a>
+    </li>
+  }
+</ul>
 
 @if (@Model.Count == 0)
 {
@@ -19,10 +33,3 @@
     <li>@Html.ActionLink($"{stylist.FirstName}" + " " + $" {stylist.LastName}", "Details", new {id = stylist.StylistId})</li>
   }
 </ul>
-
-@if(@Model.Count != 0)
-{
-  <p>@Html.ActionLink("View all clients", "Index", "Clients")</p>
-}
-<p>@Html.ActionLink("Add new stylist", "Create")</p>
-<p>@Html.ActionLink("Home", "Index", "Home")</p>
