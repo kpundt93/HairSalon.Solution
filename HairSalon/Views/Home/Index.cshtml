@@ -3,5 +3,11 @@
 }
 
 <h1>Eau Claire's Salon</h1>
-<h2>Welcome Claire!</h2>
-<p>@Html.ActionLink("See all stylists", "Index", "Stylists")</p>
+<hr />
+<h2>Welcome back, Claire!</h2>
+<ul class="nav justify-content-center">
+  <li class="nav-item">
+    <p>@Html.ActionLink("See all stylists", "Index", "Stylists", new { @class="nav-item"})</p>
+  </li>
+</ul>
+
